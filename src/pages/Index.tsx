@@ -5,10 +5,12 @@ import { ShelterMap } from '@/components/ShelterMap';
 import { SurvivorComms } from '@/components/SurvivorComms';
 import { SupplyTracker } from '@/components/SupplyTracker';
 import { SOSBeacon } from '@/components/SOSBeacon';
+import { MissionLogbook } from '@/components/MissionLogbook';
+import { AIAssistant } from '@/components/AIAssistant';
 import { StatusHeader } from '@/components/StatusHeader';
 import apocalypseBg from '@/assets/apocalypse-bg.jpg';
 
-export type AppView = 'detector' | 'map' | 'comms' | 'supplies' | 'sos';
+export type AppView = 'detector' | 'map' | 'comms' | 'supplies' | 'sos' | 'missions' | 'ai';
 
 const Index = () => {
   const [currentView, setCurrentView] = useState<AppView>('detector');
@@ -25,6 +27,10 @@ const Index = () => {
         return <SupplyTracker />;
       case 'sos':
         return <SOSBeacon />;
+      case 'missions':
+        return <MissionLogbook />;
+      case 'ai':
+        return <AIAssistant />;
       default:
         return <ZombieDetector />;
     }

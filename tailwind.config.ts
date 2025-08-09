@@ -52,7 +52,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Apocalyptic theme colors
+				// Z-Map 2.0 Enhanced Colors
 				'danger-zone': 'hsl(var(--danger-zone))',
 				'safe-zone': 'hsl(var(--safe-zone))',
 				'survivor-comm': 'hsl(var(--survivor-comm))',
@@ -60,6 +60,20 @@ export default {
 				'neon-red': 'hsl(var(--neon-red))',
 				'metal-dark': 'hsl(var(--metal-dark))',
 				'hazard-orange': 'hsl(var(--hazard-orange))',
+				
+				// Detection Mode Colors
+				'survivor-green': 'hsl(var(--survivor-green))',
+				'infected-purple': 'hsl(var(--infected-purple))',
+				'alert-red': 'hsl(var(--alert-red))',
+				
+				// Mutant Threat Colors
+				'runner-threat': 'hsl(var(--runner-threat))',
+				'brute-threat': 'hsl(var(--brute-threat))',
+				'screamer-threat': 'hsl(var(--screamer-threat))',
+				
+				// AI Assistant Colors
+				'ai-cyan': 'hsl(var(--ai-cyan))',
+				'ai-interface': 'hsl(var(--ai-interface))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

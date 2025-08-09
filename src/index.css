@@ -41,7 +41,7 @@
     --input: 0 0% 20%;
     --ring: 0 75% 45%;
 
-    /* Custom apocalyptic colors */
+    /* Z-Map 2.0 Enhanced Colors */
     --danger-zone: 0 85% 35%;
     --safe-zone: 120 65% 35%;
     --survivor-comm: 200 75% 45%;
@@ -49,6 +49,20 @@
     --neon-red: 0 100% 55%;
     --metal-dark: 0 0% 12%;
     --hazard-orange: 25 95% 55%;
+    
+    /* New 2.0 Detection Modes */
+    --survivor-green: 120 100% 40%;
+    --infected-purple: 270 85% 55%;
+    --alert-red: 0 100% 50%;
+    
+    /* Mutant Threat Colors */
+    --runner-threat: 45 100% 50%;
+    --brute-threat: 15 100% 45%;
+    --screamer-threat: 300 100% 50%;
+    
+    /* AI Assistant Colors */
+    --ai-cyan: 180 100% 50%;
+    --ai-interface: 180 50% 25%;
 
     /* Gradients */
     --gradient-apocalypse: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 15%));
