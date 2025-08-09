@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Apocalyptic theme colors
+				'danger-zone': 'hsl(var(--danger-zone))',
+				'safe-zone': 'hsl(var(--safe-zone))',
+				'survivor-comm': 'hsl(var(--survivor-comm))',
+				'thermal-glow': 'hsl(var(--thermal-glow))',
+				'neon-red': 'hsl(var(--neon-red))',
+				'metal-dark': 'hsl(var(--metal-dark))',
+				'hazard-orange': 'hsl(var(--hazard-orange))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

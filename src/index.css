@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Z-Map Apocalypse Design System - Post-Apocalyptic Survival Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core apocalyptic color palette */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Blood red primary for danger/zombie alerts */
+    --primary: 0 75% 45%;
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Dark metal secondary */
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 80%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted grays for inactive elements */
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Hazard yellow accent */
+    --accent: 45 95% 55%;
+    --accent-foreground: 0 0% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Critical red for destructive actions */
+    --destructive: 0 85% 50%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Darker borders and inputs */
+    --border: 0 0% 25%;
+    --input: 0 0% 20%;
+    --ring: 0 75% 45%;
 
-    --radius: 0.5rem;
+    /* Custom apocalyptic colors */
+    --danger-zone: 0 85% 35%;
+    --safe-zone: 120 65% 35%;
+    --survivor-comm: 200 75% 45%;
+    --thermal-glow: 0 100% 65%;
+    --neon-red: 0 100% 55%;
+    --metal-dark: 0 0% 12%;
+    --hazard-orange: 25 95% 55%;
+
+    /* Gradients */
+    --gradient-apocalypse: linear-gradient(135deg, hsl(0 0% 8%), hsl(0 0% 15%));
+    --gradient-danger: linear-gradient(135deg, hsl(0 85% 35%), hsl(0 75% 25%));
+    --gradient-metal: linear-gradient(180deg, hsl(0 0% 20%), hsl(0 0% 8%));
+    --gradient-glow: radial-gradient(circle, hsl(0 100% 55% / 0.3), transparent);
+
+    /* Shadows and glows */
+    --shadow-red-glow: 0 0 20px hsl(0 100% 55% / 0.5);
+    --shadow-danger: 0 4px 20px hsl(0 85% 35% / 0.4);
+    --shadow-metal: inset 0 1px 3px hsl(0 0% 0% / 0.8);
+
+    --radius: 0.25rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,132 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-mono;
+    background: var(--gradient-apocalypse);
+    overflow-x: hidden;
   }
+}
+
+@layer components {
+  /* Glitch effect for cracked screen aesthetic */
+  .glitch {
+    position: relative;
+    animation: glitch 2s infinite;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch::before {
+    animation: glitch-1 0.3s infinite linear alternate-reverse;
+    color: hsl(var(--neon-red));
+    z-index: -1;
+  }
+
+  .glitch::after {
+    animation: glitch-2 0.3s infinite linear alternate-reverse;
+    color: hsl(var(--hazard-orange));
+    z-index: -2;
+  }
+
+  /* Flickering neon effect */
+  .neon-flicker {
+    animation: neon-flicker 1.5s infinite alternate;
+    text-shadow: 
+      0 0 5px hsl(var(--neon-red)),
+      0 0 10px hsl(var(--neon-red)),
+      0 0 15px hsl(var(--neon-red));
+  }
+
+  /* Pulsing danger effect */
+  .pulse-danger {
+    animation: pulse-danger 2s infinite;
+    box-shadow: var(--shadow-red-glow);
+  }
+
+  /* Thermal vision overlay */
+  .thermal-overlay {
+    background: radial-gradient(circle, hsl(var(--thermal-glow) / 0.3) 0%, transparent 70%);
+    mix-blend-mode: overlay;
+  }
+
+  /* Metal texture background */
+  .metal-texture {
+    background: var(--gradient-metal);
+    box-shadow: var(--shadow-metal);
+    border: 1px solid hsl(var(--border));
+  }
+
+  /* Scanner line effect */
+  .scanner-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scanner-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-red)), transparent);
+    animation: scanner 3s infinite;
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0% { clip-path: inset(20% 0 30% 0); }
+  20% { clip-path: inset(60% 0 30% 0); }
+  40% { clip-path: inset(43% 0 1% 0); }
+  60% { clip-path: inset(25% 0 58% 0); }
+  80% { clip-path: inset(54% 0 7% 0); }
+  100% { clip-path: inset(58% 0 43% 0); }
+}
+
+@keyframes glitch-2 {
+  0% { clip-path: inset(25% 0 58% 0); }
+  20% { clip-path: inset(54% 0 7% 0); }
+  40% { clip-path: inset(58% 0 43% 0); }
+  60% { clip-path: inset(20% 0 30% 0); }
+  80% { clip-path: inset(60% 0 30% 0); }
+  100% { clip-path: inset(43% 0 1% 0); }
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px hsl(var(--neon-red)),
+      0 0 10px hsl(var(--neon-red)),
+      0 0 15px hsl(var(--neon-red));
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes pulse-danger {
+  0% { box-shadow: var(--shadow-red-glow); }
+  50% { box-shadow: 0 0 30px hsl(var(--neon-red) / 0.8); }
+  100% { box-shadow: var(--shadow-red-glow); }
+}
+
+@keyframes scanner {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
